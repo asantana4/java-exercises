@@ -1,3 +1,5 @@
+import java.time.Year;
+
 public class Worker {
 
     private String name;
@@ -10,7 +12,10 @@ public class Worker {
     }
 
     public int getAge() {
-        return 0;
+        String[] monthDayYear =  birthdate.split("/");
+        int birthYear = Integer.parseInt(birthdate.split("/")[2]);
+//        System.out.println(birthYear);
+        return Year.now().getValue() - birthYear;
     }
 
     public double collectPay() {
