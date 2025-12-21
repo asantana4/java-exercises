@@ -1,6 +1,12 @@
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
-        Worker alberto = new Worker("Alberto R.", "5/15/1975");
-        System.out.println(alberto.getAge());
+
+        LocalDate date = LocalDate.ofYearDay(1994, 142);
+        System.out.println(date);
+
+
+
     }
 }
