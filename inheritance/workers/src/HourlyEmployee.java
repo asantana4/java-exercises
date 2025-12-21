@@ -16,9 +16,25 @@ public class HourlyEmployee extends Employee {
         this.hourlyPayRate = hourlyPayRate;
     }
 
+    public double getHourlyPayRate() {
+        return hourlyPayRate;
+    }
+
     public void getDoublePay() {
         hourlyPayRate *= 2;
         System.out.println("This employee is getting double pay.");
+    }
+
+
+    @Override
+    public String toString() {
+        return """
+                %s
+                ID: %d
+                Makes %s an hour
+                Hire date: %s
+                Last day: %s%n""".formatted(name, employeeID, MONEY_FORMATTER.format(hourlyPayRate),
+                                            hireDate, endDate);
     }
 
 }

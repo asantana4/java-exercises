@@ -1,11 +1,9 @@
-import java.time.LocalDate;
-
 public class SalariedEmployee extends Employee {
-    private double annualSalary;
+    private final double annualSalary;
     private boolean isRetired;
 
     public SalariedEmployee(String name) {
-        this(name, RANDOM.nextDouble(45000.00, 300000), false);
+        this(name, RANDOM.nextDouble(45000.00, 300000.01), false);
     }
 
     public SalariedEmployee(String name, double annualSalary, boolean isRetired) {
@@ -20,12 +18,26 @@ public class SalariedEmployee extends Employee {
         this.isRetired = isRetired;
     }
 
-    public void retire() {
-        LocalDate today = LocalDate.now();
-        isRetired = true;
-        super.endDate = String.valueOf(today);
-        System.out.printf("Employee %s has been retired%n", super.name);
+    public double getAnnualSalary() {
+        return annualSalary;
     }
 
+    public void retire() {
 
+        isRetired = true;
+        endDate = String.valueOf(TODAY_DATE);
+        System.out.printf("Employee %s has been retired%n", name);
+    }
+
+    @Override
+    public String toString() {
+        return """
+                %s
+                ID: %d
+                Makes %s a year
+                Retired?: %b
+                Hire date: %s
+                Last day: %s%n""".formatted(name, employeeID, MONEY_FORMATTER.format(annualSalary), isRetired,
+                                                hireDate, endDate);
+    }
 }
