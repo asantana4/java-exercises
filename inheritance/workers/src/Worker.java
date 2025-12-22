@@ -1,22 +1,27 @@
-import java.text.NumberFormat;
 import java.time.LocalDate;
 import java.util.Random;
 
 
 public class Worker {
 
-    protected String name;
+    private final String name;
     private final String birthdate;
     protected String endDate;
-    public final static Random RANDOM = new Random();
-    public final static NumberFormat MONEY_FORMATTER = NumberFormat.getCurrencyInstance();
-    public final static LocalDate TODAY_DATE = LocalDate.now();
+    protected final static Random RANDOM = new Random();
+    protected final static LocalDate TODAY_DATE = LocalDate.now();
 
 
-    public Worker(String name, String birthdate, String endDate) {
+    public Worker(String name) {
+        this(name, getRandomDate(1990, 2001));
+    }
+
+    public Worker(String name, String birthdate) {
         this.name = name;
         this.birthdate = birthdate;
-        this.endDate = endDate;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getAge() {
@@ -37,28 +42,25 @@ public class Worker {
 
     public double collectPay() {
 
-        String employeeName = "UNKNOWN";
-        double payment = 100.00;
-        if (this instanceof SalariedEmployee salariedEmp) {
-            employeeName = salariedEmp.name;
-            payment = salariedEmp.getAnnualSalary() / 12;
-        } else if (this instanceof HourlyEmployee hourlyEmp){
-            employeeName = hourlyEmp.name;
-            payment = hourlyEmp.getHourlyPayRate() * 150;
-        }
-        System.out.printf("The employee %s collected %s for the month.%n", employeeName,
-                            MONEY_FORMATTER.format(payment));
-        return payment;
+        return 0.00;
     }
 
     public void terminate (String endDate) {
         this.endDate = endDate;
-        System.out.println("Employee " + name + " was terminated on " + this.endDate);
     }
 
     public static String getRandomDate(int yearFrom, int yearUntil) {
-        return String.valueOf(LocalDate.ofYearDay(  RANDOM.nextInt(yearFrom, yearUntil),
+        return java.lang.String.valueOf(LocalDate.ofYearDay(  RANDOM.nextInt(yearFrom, yearUntil),
                                                     RANDOM.nextInt(1, 366)  ));
+    }
+
+    @Override
+    public String toString() {
+        return """
+                %s
+                Birthday: %s
+                End day: %s
+                """.formatted(name, birthdate, endDate);
     }
 
 

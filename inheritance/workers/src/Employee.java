@@ -1,14 +1,24 @@
+import java.text.NumberFormat;
+
 public class Employee extends Worker {
 
-    protected long employeeID;
+    private final long employeeID;
     protected String hireDate;
-    public static long nextID = 1542247;
+    private static long nextID = 1542247;
+    protected final static NumberFormat MONEY_FORMATTER = NumberFormat.getCurrencyInstance();
 
+    public Employee(String name) {
+        super(name);
+        this.employeeID = nextID++;
+        this.hireDate = String.valueOf(Worker.getRandomDate(2020, 2026));
+    }
 
-    public Employee(String name, String birthdate, String endDate, long employeeID, String hireDate) {
-        super(name, birthdate, endDate);
-        this.employeeID = employeeID;
-        this.hireDate = hireDate;
+    @Override
+    public String toString() {
+        return super.toString() + """
+                ID: %d
+                Hired on: %s
+                """.formatted(employeeID, hireDate);
     }
 
 
