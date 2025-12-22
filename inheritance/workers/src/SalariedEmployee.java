@@ -21,11 +21,7 @@ public class SalariedEmployee extends Employee {
         terminate(String.valueOf(LocalDate.now()));
         System.out.printf("Salaried employee %s has been retired.%n", super.getName());
 
-
-
     }
-
-
 
 
 
