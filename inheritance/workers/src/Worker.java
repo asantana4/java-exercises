@@ -5,7 +5,7 @@ import java.util.Random;
 public class Worker {
 
     private final String name;
-    private final String birthdate;
+    private final String birthDate;
     protected String endDate;
     protected final static Random RANDOM = new Random();
     protected final static LocalDate TODAY_DATE = LocalDate.now();
@@ -15,9 +15,9 @@ public class Worker {
         this(name, getRandomDate(1990, 2001));
     }
 
-    public Worker(String name, String birthdate) {
+    public Worker(String name, String birthDate) {
         this.name = name;
-        this.birthdate = birthdate;
+        this.birthDate = birthDate;
     }
 
     public String getName() {
@@ -26,7 +26,7 @@ public class Worker {
 
     public int getAge() {
 
-        String[] yearMonthDay =  birthdate.split("-");
+        String[] yearMonthDay =  birthDate.split("-");
         int birthYear = Integer.parseInt(yearMonthDay[0]);
         int birthMonth = Integer.parseInt(yearMonthDay[1]);
         int birthDay = Integer.parseInt(yearMonthDay[2]);
@@ -60,7 +60,7 @@ public class Worker {
                 %s
                 Birthday: %s
                 End day: %s
-                """.formatted(name, birthdate, endDate);
+                """.formatted(name, birthDate, endDate);
     }
 
 

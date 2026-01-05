@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/inheritance.iml" filepath="$PROJECT_DIR$/.idea/inheritance.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library-items/library-items.iml" filepath="$PROJECT_DIR$/library-items/library-items.iml" />
+      <module fileurl="file://$PROJECT_DIR$/payment-processing-system/payment-processing-system.iml" filepath="$PROJECT_DIR$/payment-processing-system/payment-processing-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/workers/workers.iml" filepath="$PROJECT_DIR$/workers/workers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/workers-2/workers-2.iml" filepath="$PROJECT_DIR$/workers-2/workers-2.iml" />
+    </modules>
+  </component>
+</project>
