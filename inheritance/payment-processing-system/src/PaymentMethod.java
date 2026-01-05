@@ -13,6 +13,7 @@ public abstract class PaymentMethod {
 
     public final boolean processPayment(double amount) {
         boolean paymentCanGoThrough = false;
+
         if (validatePayment(amount) && hasSufficientBalance(amount)) {
             paymentCanGoThrough = true;
             deductBalance(amount);
@@ -25,7 +26,7 @@ public abstract class PaymentMethod {
 
     protected boolean validatePayment(double amount) {
         return (accountHolder != null && !accountHolder.isBlank()) && amount > 0;
-    };
+    }
     protected abstract double calculateFee(double amount);
     protected abstract boolean hasSufficientBalance(double amount);
     protected abstract void deductBalance(double amount);
